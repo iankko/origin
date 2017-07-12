@@ -6858,6 +6858,27 @@ func GetOpenAPIDefinitions(ref openapi.ReferenceCallback) map[string]openapi.Ope
 								Format:      "",
 							},
 						},
+						"identityName": {
+							SchemaProps: spec.SchemaProps{
+								Description: "IdentityName is the name of the Identity API object associated with this token",
+								Type:        []string{"string"},
+								Format:      "",
+							},
+						},
+						"identityProviderGroups": {
+							SchemaProps: spec.SchemaProps{
+								Description: "IdentityProviderGroups are the group memberships determined by the identity provider",
+								Type:        []string{"array"},
+								Items: &spec.SchemaOrArray{
+									Schema: &spec.Schema{
+										SchemaProps: spec.SchemaProps{
+											Type:   []string{"string"},
+											Format: "",
+										},
+									},
+								},
+							},
+						},
 					},
 				},
 			},
@@ -7002,6 +7023,27 @@ func GetOpenAPIDefinitions(ref openapi.ReferenceCallback) map[string]openapi.Ope
 								Description: "CodeChallengeMethod is the optional code_challenge_method associated with this authorization code, as described in rfc7636",
 								Type:        []string{"string"},
 								Format:      "",
+							},
+						},
+						"identityName": {
+							SchemaProps: spec.SchemaProps{
+								Description: "IdentityName is the name of the Identity API object associated with this token",
+								Type:        []string{"string"},
+								Format:      "",
+							},
+						},
+						"identityProviderGroups": {
+							SchemaProps: spec.SchemaProps{
+								Description: "IdentityProviderGroups are the group memberships determined by the identity provider",
+								Type:        []string{"array"},
+								Items: &spec.SchemaOrArray{
+									Schema: &spec.Schema{
+										SchemaProps: spec.SchemaProps{
+											Type:   []string{"string"},
+											Format: "",
+										},
+									},
+								},
 							},
 						},
 					},
