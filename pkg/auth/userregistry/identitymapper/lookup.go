@@ -8,6 +8,7 @@ import (
 	apirequest "k8s.io/apiserver/pkg/endpoints/request"
 
 	authapi "github.com/openshift/origin/pkg/auth/api"
+	userapi "github.com/openshift/origin/pkg/user/apis/user"
 	"github.com/openshift/origin/pkg/user/registry/user"
 	"github.com/openshift/origin/pkg/user/registry/useridentitymapping"
 )
@@ -38,6 +39,10 @@ func (p *lookupIdentityMapper) UserFor(info authapi.UserIdentityInfo) (kuser.Inf
 		Name:   u.Name,
 		UID:    string(u.UID),
 		Groups: u.Groups,
+		Extra: map[string][]string{
+			userapi.ExtraIdentityNameKey:           []string{mapping.Identity.Name},
+			userapi.ExtraIdentityProviderGroupsKey: info.GetProviderGroups(),
+		},
 	}, nil
 }
 
