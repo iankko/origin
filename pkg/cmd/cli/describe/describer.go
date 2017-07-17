@@ -527,6 +527,7 @@ func (d *OAuthAccessTokenDescriber) Describe(namespace, name string, settings kp
 		formatString(out, "User Name", oAuthAccessToken.UserName)
 		formatString(out, "User UID", oAuthAccessToken.UserUID)
 		formatString(out, "Client Name", oAuthAccessToken.ClientName)
+		formatString(out, "Identity Provider Groups", strings.Join(oAuthAccessToken.IdentityProviderGroups, "\n"))
 
 		return nil
 	})
